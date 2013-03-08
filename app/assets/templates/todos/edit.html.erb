@@ -1,0 +1,54 @@
+<form name="editTodo">
+  <fieldset>
+    <legend>
+      Edit Todo
+    </legend>
+      <div class="control-group">
+        <label class="control-label">
+          Task
+        </label>
+        <div class="controls">
+            <input type="text"
+                   name="todo[task]"
+                   ng-model="todo.task"
+                   class="text_field"
+                   required>
+          <span ng-show="editTodo.task.$error.required"
+                class="help-inline">
+            Required
+          </span>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">
+          Completed
+        </label>
+        <div class="controls">
+            <input type="check"
+                   name="todo[completed]"
+                   ng-model="todo.completed"
+                   class="check_box"
+                   required>
+          <span ng-show="editTodo.completed.$error.required"
+                class="help-inline">
+            Required
+          </span>
+        </div>
+      </div>
+    <div class="form-actions">
+      <button class="btn btn-success" ng-click="save()"
+        ng-disabled="isClean() || editTodo.$invalid">
+        Save
+      </button>
+      <button ng-click="destroy()"
+              ng-show="todo.id"
+              class="btn btn-danger">
+              <i class="icon-trash"></i>Delete
+      </button>
+      <a href="/todos" class="btn">
+        Back to todos
+      </a>
+    </div>
+  </fieldset>
+</form>
+

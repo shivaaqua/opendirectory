@@ -1,0 +1,25 @@
+<h1>Todo</h1>
+
+<p>
+  <b>Task</b><br>
+  {{todo.task}}
+</p>
+
+<p>
+  <b>Completed</b><br>
+  {{todo.completed}}
+</p>
+
+<div class="form-actions">
+  <a href="/todos/{{todo.id}}/edit"
+    class="btn btn-primary"><i class="icon-edit"></i>
+    Edit Todo
+  </a>
+  <button ng-click="destroy()" class="btn btn-danger">
+    <i class="icon-trash"></i> Delete
+  </button>
+  <a href="/todos" class="btn">
+    Back to todos
+  </a>
+</div>
+

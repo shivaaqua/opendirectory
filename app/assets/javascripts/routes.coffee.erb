@@ -1,0 +1,27 @@
+root = global ? window
+angular = root.angular
+
+thisApp = angular.module("OpendirectoryClient", ['ngCookies', 'todos']).config(['$routeProvider', '$locationProvider' ,
+($routeProvider, $locationProvider) ->
+  #$locationProvider.hashPrefix('');
+  $locationProvider.html5Mode true
+  $routeProvider.when("/",
+    controller: "TodosIndexCtrl"
+    templateUrl: "<%= asset_path('todos/index.html') %>"
+  ).when("/todos",
+    controller: TodosIndexCtrl
+    templateUrl: '<%= asset_path("todos/index.html") %>'
+  ).when("/todos/new",
+    controller: TodosCreateCtrl
+    templateUrl: '<%= asset_path("todos/new.html") %>'
+  ).when("/todos/:id",
+    controller: TodosShowCtrl
+    templateUrl: '<%= asset_path("todos/show.html") %>'
+  ).when("/todos/:id/edit",
+    controller: TodosEditCtrl
+    templateUrl: '<%= asset_path("todos/edit.html") %>'
+  ).otherwise redirectTo: "/"
+])
+
+root.thisApp = thisApp
+
